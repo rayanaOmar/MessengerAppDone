@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C38FD2DA2789BBEA00F2F741 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38FD2D92789BBE900F2F741 /* NewConversationViewController.swift */; };
 		C3B3061B2784B46F00097036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B3061A2784B46F00097036 /* AppDelegate.swift */; };
 		C3B3061D2784B46F00097036 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B3061C2784B46F00097036 /* SceneDelegate.swift */; };
 		C3B306222784B46F00097036 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B306202784B46F00097036 /* Main.storyboard */; };
@@ -20,9 +21,15 @@
 		C3B306462788B66800097036 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C3B306452788B66800097036 /* FirebaseAuth */; };
 		C3B306482788B66800097036 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = C3B306472788B66800097036 /* FirebaseDatabase */; };
 		C3B3064A2788E06300097036 /* DatabaseManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B306492788E06300097036 /* DatabaseManger.swift */; };
+		C3B3064C278955CC00097036 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B3064B278955CC00097036 /* ProfileViewController.swift */; };
+		C3B3065127896EEA00097036 /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = C3B3065027896EEA00097036 /* MessageKit */; };
+		C3B3065327896FD800097036 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B3065227896FD800097036 /* ChatViewController.swift */; };
+		C3B3065627897BB900097036 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = C3B3065527897BB900097036 /* JGProgressHUD */; };
+		C3B30658278991B300097036 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B30657278991B300097036 /* ConversationsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C38FD2D92789BBE900F2F741 /* NewConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		C3B306172784B46F00097036 /* MessengerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessengerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B3061A2784B46F00097036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B3061C2784B46F00097036 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +41,9 @@
 		C3B3063C2786F3A900097036 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C3B3063E2788B27A00097036 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3B306492788E06300097036 /* DatabaseManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManger.swift; sourceTree = "<group>"; };
+		C3B3064B278955CC00097036 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C3B3065227896FD800097036 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		C3B30657278991B300097036 /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +55,8 @@
 				C3B306462788B66800097036 /* FirebaseAuth in Frameworks */,
 				C3B306482788B66800097036 /* FirebaseDatabase in Frameworks */,
 				C3B306442788B66800097036 /* FirebaseStorage in Frameworks */,
+				C3B3065627897BB900097036 /* JGProgressHUD in Frameworks */,
+				C3B3065127896EEA00097036 /* MessageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +82,7 @@
 		C3B306192784B46F00097036 /* MessengerApp */ = {
 			isa = PBXGroup;
 			children = (
+				C38FD2D92789BBE900F2F741 /* NewConversationViewController.swift */,
 				C3B3061A2784B46F00097036 /* AppDelegate.swift */,
 				C3B3061C2784B46F00097036 /* SceneDelegate.swift */,
 				C3B306202784B46F00097036 /* Main.storyboard */,
@@ -80,6 +93,9 @@
 				C3B3063C2786F3A900097036 /* RegisterViewController.swift */,
 				C3B3063E2788B27A00097036 /* GoogleService-Info.plist */,
 				C3B306492788E06300097036 /* DatabaseManger.swift */,
+				C3B3064B278955CC00097036 /* ProfileViewController.swift */,
+				C3B3065227896FD800097036 /* ChatViewController.swift */,
+				C3B30657278991B300097036 /* ConversationsViewController.swift */,
 			);
 			path = MessengerApp;
 			sourceTree = "<group>";
@@ -105,6 +121,8 @@
 				C3B306432788B66800097036 /* FirebaseStorage */,
 				C3B306452788B66800097036 /* FirebaseAuth */,
 				C3B306472788B66800097036 /* FirebaseDatabase */,
+				C3B3065027896EEA00097036 /* MessageKit */,
+				C3B3065527897BB900097036 /* JGProgressHUD */,
 			);
 			productName = MessengerApp;
 			productReference = C3B306172784B46F00097036 /* MessengerApp.app */;
@@ -135,6 +153,8 @@
 			mainGroup = C3B3060E2784B46F00097036;
 			packageReferences = (
 				C3B306402788B66800097036 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C3B3064F27896EEA00097036 /* XCRemoteSwiftPackageReference "MessageKit" */,
+				C3B3065427897BB900097036 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = C3B306182784B46F00097036 /* Products */;
 			projectDirPath = "";
@@ -164,10 +184,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3B3064C278955CC00097036 /* ProfileViewController.swift in Sources */,
 				C3B3063B2786F34C00097036 /* LoginViewController.swift in Sources */,
 				C3B3064A2788E06300097036 /* DatabaseManger.swift in Sources */,
 				C3B3061B2784B46F00097036 /* AppDelegate.swift in Sources */,
 				C3B3061D2784B46F00097036 /* SceneDelegate.swift in Sources */,
+				C3B30658278991B300097036 /* ConversationsViewController.swift in Sources */,
+				C38FD2DA2789BBEA00F2F741 /* NewConversationViewController.swift in Sources */,
+				C3B3065327896FD800097036 /* ChatViewController.swift in Sources */,
 				C3B3063D2786F3A900097036 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +402,22 @@
 				kind = branch;
 			};
 		};
+		C3B3064F27896EEA00097036 /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		C3B3065427897BB900097036 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -400,6 +440,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C3B306402788B66800097036 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
+		};
+		C3B3065027896EEA00097036 /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3B3064F27896EEA00097036 /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
+		};
+		C3B3065527897BB900097036 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3B3065427897BB900097036 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
