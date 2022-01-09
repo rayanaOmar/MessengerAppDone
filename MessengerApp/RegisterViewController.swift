@@ -7,9 +7,10 @@
 
 import UIKit
 import FirebaseAuth
+import JGProgressHUD
 
 class RegisterViewController: UIViewController {
-
+    
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var userFN: UITextField!
     @IBOutlet weak var userLN: UITextField!
@@ -20,11 +21,12 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Create Account"
+        view.backgroundColor = .white
         imgView.isUserInteractionEnabled = true
         let gestrue = UITapGestureRecognizer(target: self, action: #selector(self.presentPhotoActionSheet))
         imgView.addGestureRecognizer(gestrue)
         
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -62,8 +64,27 @@ class RegisterViewController: UIViewController {
                     print("Error Creating User")
                     return
                 }
-                DatabaseManger.shared.insertUser(with: ChatAppUser(firstName: fName, lastName:
-                                                                    lName, emailAddress: eMail))
+                let chatUser = ChatAppUser(firstName: fName, lastName: lName, emailAddress: eMail)
+                DatabaseManger.shared.insertUser(with: chatUser, completion: { success in
+                    if success {
+                        //Upload image
+                        guard let image = strongSelf.imgView.image,
+                              let data = image.pngData() else {
+                            return
+                        }
+                        let fileName = chatUser.profilePictureFileName
+                        StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: { result in
+                            switch result {
+                            case.success(let downloadUrl):
+                                UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                                print(downloadUrl)
+                            case.failure(let error):
+                                print("Storage Manger error \(error)")
+                                
+                            }
+                        })
+                    }
+                })
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
             })
         })
@@ -83,99 +104,96 @@ class RegisterViewController: UIViewController {
         
     }
 }
-    //image View section
-    extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+//image View section
+extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    
+    // get results of user taking picture or selecting from camera roll
+    
+    
+    
+    @objc func presentPhotoActionSheet(){
+        
+        let actionSheet = UIAlertController(title: "Profile Picture", message: "How would you like to select a picture?", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        actionSheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { [weak self] _ in
+            
+            self?.presentCamera()
+            
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Choose Photo", style: .default, handler: { [weak self] _ in
+            
+            self?.presentPhotoPicker()
+            
+        }))
         
         
-        // get results of user taking picture or selecting from camera roll
-
-       
-
-        @objc func presentPhotoActionSheet(){
-
-            let actionSheet = UIAlertController(title: "Profile Picture", message: "How would you like to select a picture?", preferredStyle: .actionSheet)
-
-            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
-            actionSheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { [weak self] _ in
-
-                self?.presentCamera()
-
-            }))
-
-            actionSheet.addAction(UIAlertAction(title: "Choose Photo", style: .default, handler: { [weak self] _ in
-
-                self?.presentPhotoPicker()
-
-            }))
-
-            
-
-            present(actionSheet, animated: true)
-
-        }
-
-        func presentCamera() {
-
-            let vc = UIImagePickerController()
-
-            vc.sourceType = .camera
-
-            vc.delegate = self
-
-            vc.allowsEditing = true
-
-            present(vc, animated: true)
-
-        }
-
-        func presentPhotoPicker() {
-
-            let vc = UIImagePickerController()
-
-            vc.sourceType = .photoLibrary
-
-            vc.delegate = self
-
-            vc.allowsEditing = true
-
-            present(vc, animated: true)
-
-        }
-
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-
-            // take a photo or select a photo
-
-            
-
-            // action sheet - take photo or choose photo
-
-            picker.dismiss(animated: true, completion: nil)
-
-            print(info)
-
-            
-
-            guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
-
-                return
-
-            }
-
-            
-
-            self.imgView.image = selectedImage
-
-            
-
-        }
-
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-
-            picker.dismiss(animated: true, completion: nil)
-
-        }
+        
+        present(actionSheet, animated: true)
         
     }
+    
+    func presentCamera() {
+        
+        let vc = UIImagePickerController()
+        
+        vc.sourceType = .camera
+        
+        vc.delegate = self
+        
+        vc.allowsEditing = true
+        
+        present(vc, animated: true)
+        
+    }
+    
+    func presentPhotoPicker() {
+        
+        let vc = UIImagePickerController()
+        
+        vc.sourceType = .photoLibrary
+        
+        vc.delegate = self
+        
+        vc.allowsEditing = true
+        
+        present(vc, animated: true)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        // take a photo or select a photo
+        
+        
+        
+        // action sheet - take photo or choose photo
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+        print(info)
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            
+            return
+            
+        }
+        
+        
+        
+        self.imgView.image = selectedImage
+        
+        
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+    
+}
 

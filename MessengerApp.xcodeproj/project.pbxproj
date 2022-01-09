@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C38FD2DA2789BBEA00F2F741 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38FD2D92789BBE900F2F741 /* NewConversationViewController.swift */; };
+		C38FD2DC278AA97100F2F741 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38FD2DB278AA97100F2F741 /* StorageManager.swift */; };
 		C3B3061B2784B46F00097036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B3061A2784B46F00097036 /* AppDelegate.swift */; };
 		C3B3061D2784B46F00097036 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B3061C2784B46F00097036 /* SceneDelegate.swift */; };
 		C3B306222784B46F00097036 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B306202784B46F00097036 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		C38FD2D92789BBE900F2F741 /* NewConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
+		C38FD2DB278AA97100F2F741 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		C3B306172784B46F00097036 /* MessengerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessengerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B3061A2784B46F00097036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B3061C2784B46F00097036 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				C3B3064B278955CC00097036 /* ProfileViewController.swift */,
 				C3B3065227896FD800097036 /* ChatViewController.swift */,
 				C3B30657278991B300097036 /* ConversationsViewController.swift */,
+				C38FD2DB278AA97100F2F741 /* StorageManager.swift */,
 			);
 			path = MessengerApp;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				C3B3061D2784B46F00097036 /* SceneDelegate.swift in Sources */,
 				C3B30658278991B300097036 /* ConversationsViewController.swift in Sources */,
 				C38FD2DA2789BBEA00F2F741 /* NewConversationViewController.swift in Sources */,
+				C38FD2DC278AA97100F2F741 /* StorageManager.swift in Sources */,
 				C3B3065327896FD800097036 /* ChatViewController.swift in Sources */,
 				C3B3063D2786F3A900097036 /* RegisterViewController.swift in Sources */,
 			);
