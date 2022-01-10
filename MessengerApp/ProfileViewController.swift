@@ -10,13 +10,57 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var imgViewProfile: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Profile"
+        imgViewProfile.layer.borderColor = UIColor.white.cgColor
+
+        imgViewProfile.layer.borderWidth = 3
+
+        imgViewProfile.layer.masksToBounds = true
+
+        imgViewProfile.layer.cornerRadius = imgViewProfile.frame.size.width/2
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+
+            guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+
+                return
+
+            }
+
+
+
+            let safeEmail = DatabaseManger.safeEmail(emailAddress: email)
+
+            let filename = safeEmail + "_profile_picture.png"
+
+            let path = "image/"+filename
+
+            StorageManager.shared.downloadURL(for: path, completion: { result in
+
+                switch result {
+
+                case .success(let url):
+
+                    self.imgViewProfile.sd_setImage(with: url, completed: nil)
+
+                case .failure(let error):
+
+                    print("Download Url Failed: \(error)")
+
+                }
+
+            })
+
+            
+
+        }
     
 
     @IBAction func logoutBtnAction(_ sender: UIButton) {

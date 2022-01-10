@@ -278,9 +278,18 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tpb-Jl-FjA">
                                 <rect key="frame" x="16" y="81" width="288" height="150"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sdv-E1-Uw0">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="150"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="3dK-gG-Qet"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sdv-E1-Uw0" secondAttribute="trailing" id="7pu-uA-8Le"/>
+                                    <constraint firstItem="Sdv-E1-Uw0" firstAttribute="leading" secondItem="Tpb-Jl-FjA" secondAttribute="leading" id="D9b-oR-SyH"/>
+                                    <constraint firstItem="Sdv-E1-Uw0" firstAttribute="top" secondItem="Tpb-Jl-FjA" secondAttribute="top" id="KoJ-xC-Psq"/>
+                                    <constraint firstAttribute="bottom" secondItem="Sdv-E1-Uw0" secondAttribute="bottom" id="rXg-ix-IEo"/>
                                     <constraint firstAttribute="height" constant="150" id="vFZ-3E-Y3P"/>
                                 </constraints>
                             </stackView>
@@ -311,10 +320,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yjj-An-gu7"/>
+                    <connections>
+                        <outlet property="imgViewProfile" destination="Sdv-E1-Uw0" id="Gwo-mZ-2L9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SJX-Nq-cAs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2042" y="-455"/>
+            <point key="canvasLocation" x="2041.875" y="-455.28169014084506"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aTo-P9-Kp0">

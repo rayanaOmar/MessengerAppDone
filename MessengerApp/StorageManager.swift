@@ -39,6 +39,34 @@ final class StorageManager{
             
         })
     }
+    
+    public func downloadURL(for path: String,completion: @escaping (Result<URL, Error>) -> Void) {
+
+            let reference = storage.child(path)
+
+            
+
+            // whole closure is escaping
+
+            // when you call the completion down below, it can escape the asynchronous execution block that firebase provides
+
+            
+
+            reference.downloadURL { url, error in
+
+                guard let url = url, error == nil else {
+
+                    completion(.failure(StorageErorr.faildToGetDownloadUrl))
+
+                    return
+
+                }
+
+                completion(.success(url))
+
+            }
+
+        }
     public enum StorageErorr : Error {
         case faildToUpload
         case faildToGetDownloadUrl

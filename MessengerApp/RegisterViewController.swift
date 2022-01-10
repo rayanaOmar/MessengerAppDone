@@ -20,6 +20,7 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imgView.layer.cornerRadius = imgView.frame.size.width/2
         title = "Create Account"
         view.backgroundColor = .white
         imgView.isUserInteractionEnabled = true
